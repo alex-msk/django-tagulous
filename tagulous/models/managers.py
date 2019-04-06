@@ -516,6 +516,12 @@ class TagRelatedManagerMixin(BaseTagRelatedManager):
         Ensure that self.tags all exist in the database
         """
         db_tags = []
+        #dirty hack 
+        if type(tags[0]) == list:
+            tmp_tags=self.tag_model.objects.filter(pk__in=tags[0])
+        else:
+            tmp_tags=tags
+            
         for tag in tags:
             if tag.pk:
                 # Already in DB
