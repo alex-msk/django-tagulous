@@ -522,7 +522,7 @@ class TagRelatedManagerMixin(BaseTagRelatedManager):
         else:
             tmp_tags=tags
             
-        for tag in tags:
+        for tag in tmp_tags:
             if tag.pk:
                 # Already in DB
                 db_tag = tag
